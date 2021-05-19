@@ -12,6 +12,11 @@ load_vaccination_centers() {
 	for i in $(seq 2 4); do
 		VACCINATION_CENTERS="$VACCINATION_CENTERS $(curl -s "$BASE_CITY_URL?ref_visit_motive_ids[]=6970&ref_visit_motive_ids[]=7005&force_max_limit=2&page=$i" | grep -oP 'search-result-\K[0-9]+')"
 	done
+
+	if [ -z "$VACCINATION_CENTERS" ]; then
+		echo "No results for $CITY"
+		exit 0
+	fi
 }
 
 check_availability() {
