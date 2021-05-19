@@ -41,8 +41,7 @@ check_availability() {
 			slots_nb=$(echo "$agenda" | jq -r '.slots | length')
 			[ "$slots_nb" = "0" ] && continue
 			echo "    $date: $slots_nb available slots"
-			notify-send -u critical "Available slots in $center_city the $date
-			$center_name"
+			notify-send -u critical "$center_name" "$slots_nb Available slots in $center_city the $date"
 		done
 	done
 }
