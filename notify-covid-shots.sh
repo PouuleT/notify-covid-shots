@@ -25,7 +25,7 @@ check_availability() {
 
 		echo "$center_zip" | grep -qEv "$SKIP_CODES" || continue
 		echo ""
-		echo "[$center_id] $center_city ($center_zip) $center_name:"
+		echo "$center_city ($center_zip) $center_name:"
 		if [ "$center_availabilities" = "" ]; then
 			echo "    No availabe slots"
 			continue
