@@ -7,7 +7,10 @@ Parse Doctolib website to get the list of centers around your city (you can excl
 ## Usage
 
 ```
-pwet@w000t $ ./notify-covid-shots.sh <name_of_city> <exluded_zipcodes_regex>
+pwet@w000t $ ./notify-covid-shots.sh
+Usage: ./notify-covid-shots.sh LOWERCASE_CITY_NAME [ EXCLUDED_ZIPCODES_REGEX ]
+  eg: ./notify-covid-shots.sh lille '62...|59792'
+Shows availabilities of COVID19 chronodoses near your city
 ```
 
 ## Example

@@ -1,5 +1,16 @@
 #!/bin/sh
 
+set -e
+
+_usage() {
+	echo "Usage: $0 LOWERCASE_CITY_NAME [ EXCLUDED_ZIPCODES_REGEX ]"
+	echo "  eg: $0 lille '62...|59792'"
+	echo "Shows availabilities of COVID19 chronodoses near your city"
+	exit 1
+}
+
+[ "$1" ] || _usage
+
 VACCINATION_CENTERS=""
 CITY="$1"
 SKIP_CODES="$2"
