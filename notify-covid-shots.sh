@@ -39,7 +39,10 @@ check_availability() {
 		center_zip=$(echo "$result" | jq -r .search_result.zipcode)
 		center_availabilities=$(echo "$result" | jq .availabilities[])
 
-		echo "$center_zip" | grep -qEv "$SKIP_CODES" || continue
+		if [ -n "$SKIP_CODES" ]; then
+			echo "$center_zip" | grep -qEv "$SKIP_CODES" || continue
+		fi
+
 		echo ""
 		echo "$center_city ($center_zip) $center_name:"
 		if [ "$center_availabilities" = "" ]; then
